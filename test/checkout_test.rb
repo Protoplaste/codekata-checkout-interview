@@ -1,11 +1,15 @@
 require "minitest/autorun"
 require_relative "../lib/checkout"
+require 'byebug'
 
 
 class TestPrice < Minitest::Test
 
   # TODO: RULES go here, you decide which data structure is the best
-  # RULES = ...
+  RULES = [{item: "A", price: 50, special_offer: {amount: 3, price: 130 }},
+           {item: "B", price: 30, special_offer: {amount: 2, price: 45 }},
+           {item: "C", price: 20, special_offer: {}},
+           {item: "D", price: 15, special_offer: {}}]
 
   def price(goods)
     co = ::Checkout.new(RULES)
